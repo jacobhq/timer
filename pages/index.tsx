@@ -35,7 +35,7 @@ const Home: NextPage = () => {
     return seconds
   }
 
-  const { time, start, pause, reset, status } = useTimer({initialTime: toSeconds(userValue), timerType: "DECREMENTAL", endTime: 0, onTimeOver: () => timerEnd()});
+  const { time, start, pause, reset, status } = useTimer({ initialTime: toSeconds(userValue), timerType: "DECREMENTAL", endTime: 0, onTimeOver: () => timerEnd() });
 
   return (
     <div>
@@ -64,11 +64,10 @@ const Home: NextPage = () => {
           onClick={status !== 'RUNNING' ? start : pause}
         />
         <InputGroup>
-          <InputLeftElement
-            pointerEvents='none'
-            children={<TimeIcon color='blue.600' />}
-          />
-          <TimeField input={<Input size="lg" variant="flushed" textAlign="center" />} onChange={(e) => setUserValue(e.target.value)} value={userValue} onBlur={reset} />
+          <InputLeftElement pointerEvents='none'>
+            <TimeIcon color='blue.600' />
+          </InputLeftElement>
+          <TimeField input={<Input size="lg" variant="flushed" textAlign="center" />} onChange={(e) => { setUserValue(e.target.value); reset() }} value={userValue} />
         </InputGroup>
         <IconButton
           colorScheme="blue"
