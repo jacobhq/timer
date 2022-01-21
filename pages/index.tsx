@@ -25,7 +25,7 @@ const Home: NextPage = () => {
     play()
   }
 
-  const [userValue, setUserValue] = useState('01:00')
+  const [userValue, setUserValue] = useState('00:10')
 
   function toSeconds(time: string) {
     var hms = '00:' + time
