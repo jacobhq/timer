@@ -1,5 +1,5 @@
 import { TimeIcon, RepeatClockIcon, ViewOffIcon, ViewIcon, MoonIcon, SunIcon, HamburgerIcon } from '@chakra-ui/icons'
-import { Box, Button, ButtonGroup, Heading, IconButton, Input, InputGroup, InputLeftElement, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Tooltip, useColorMode } from '@chakra-ui/react'
+import { Box, Button, ButtonGroup, Heading, IconButton, Input, InputGroup, InputLeftElement, Link, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Tooltip, useColorMode, useDisclosure, Text, Editable, EditableInput, EditablePreview } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import TimeField from 'react-simple-timefield';
@@ -48,6 +48,9 @@ const Home: NextPage = ({ slug }) => {
       }
     }
   }
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [num, setNum] = useState(3)
 
   const { time, start, pause, reset, status } = useTimer({ initialTime: toSeconds(slug.join(':')), timerType: "DECREMENTAL", endTime: 0, onTimeOver: () => timerEnd() });
 
@@ -104,7 +107,32 @@ const Home: NextPage = ({ slug }) => {
             <MenuItem onClick={toggleColorMode}>Toggle theme</MenuItem>
             <MenuItem onClick={hideToolbar}>Hide toolbar</MenuItem>
             <MenuDivider />
-            <MenuItem>Donate to JacobHQ</MenuItem>
+            <MenuItem onClick={onOpen}>Donate to JacobHQ</MenuItem>
+            <Modal isOpen={isOpen} onClose={onClose}>
+              <ModalOverlay />
+              <ModalContent>
+                <ModalHeader></ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>
+                  <Heading>{num}</Heading>
+                  <Text>{num > 1 ? 'coffees' : 'coffee'}</Text>
+                  <Slider aria-label='slider-ex-1' defaultValue={3} min={1} max={10} onChange={(val) => setNum(val)}>
+                    <SliderTrack>
+                      <SliderFilledTrack />
+                    </SliderTrack>
+                    <SliderThumb />
+                  </Slider>
+                </ModalBody>
+
+                <ModalFooter>
+                  <ButtonGroup>
+                    <Link href={`https://buy.jacob.omg.lol/donate/${num}`} _hover={{ testDecoration: 'none' }}>
+                      <Button colorScheme="blue">Donate {num} {num > 1 ? 'coffees' : 'coffee'}</Button>
+                    </Link>
+                  </ButtonGroup>
+                </ModalFooter>
+              </ModalContent>
+            </Modal>
           </MenuList>
         </Menu>
       </ButtonGroup>
