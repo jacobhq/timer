@@ -39,16 +39,25 @@ const Home: NextPage = ({slug}) => {
     return seconds
   }
 
+  const handleKeyDown = (event: { key: string; }) => {
+    if (event.key === 'Enter') {
+      let proc = userValue.replace(':', '/')
+      if (typeof window !== "undefined") {
+        window.location.assign(`/time/${proc}`)
+      }
+    }
+  }
+
   const { time, start, pause, reset, status } = useTimer({ initialTime: toSeconds(slug.join(':')), timerType: "DECREMENTAL", endTime: 0, onTimeOver: () => timerEnd() });
 
   return (
     <div>
       <Head>
-        <title>{time} remaining</title>
+        <title>{new Date(time * 1000).toISOString().substr(14, 5)} remaining</title>
       </Head>
       <Box position="fixed" transform="translate(-50%, -50%)" left="50%" top="50%">
         <Heading size="4xl">
-          {time}
+          {new Date(time * 1000).toISOString().substr(14, 5)}
         </Heading>
       </Box>
       <ButtonGroup p={2} borderWidth="1px" borderRadius={8} position="fixed" left={10} bottom={10} hidden={toolbar}>
@@ -71,7 +80,7 @@ const Home: NextPage = ({slug}) => {
           <InputLeftElement pointerEvents='none'>
             <TimeIcon color='blue.600' />
           </InputLeftElement>
-          <TimeField input={<Input size="lg" variant="flushed" textAlign="center" />} onChange={(e) => { setUserValue(e.target.value); reset() }} value={userValue} />
+          <TimeField input={<Input size="lg" variant="flushed" textAlign="center" onKeyDown={handleKeyDown} />} onChange={(e) => { setUserValue(e.target.value); reset() }} value={userValue} />
         </InputGroup>
         <IconButton
           colorScheme="blue"
