@@ -1,5 +1,5 @@
-import { TimeIcon, RepeatClockIcon, ViewOffIcon, ViewIcon } from '@chakra-ui/icons'
-import { Box, Button, ButtonGroup, Heading, IconButton, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
+import { TimeIcon, RepeatClockIcon, ViewOffIcon, ViewIcon, MoonIcon, SunIcon, HamburgerIcon } from '@chakra-ui/icons'
+import { Box, Button, ButtonGroup, Heading, IconButton, Input, InputGroup, InputLeftElement, Menu, MenuButton, MenuDivider, MenuItem, MenuList, useColorMode } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import TimeField from 'react-simple-timefield';
@@ -11,11 +11,12 @@ import useSound from 'use-sound';
 import { useRouter } from 'next/router';
 
 // @ts-ignore
-const Home: NextPage = ({slug}) => {
+const Home: NextPage = ({ slug }) => {
   let [toolbar, setToolbar] = useState(true)
   const [play, { stop }] = useSound('/timer_end.mp3');
   const router = useRouter()
   const valid = /^\d{1,2}$/g
+  const { colorMode, toggleColorMode } = useColorMode()
 
   function hideToolbar() {
     setToolbar(false)
@@ -78,7 +79,7 @@ const Home: NextPage = ({slug}) => {
         />
         <InputGroup>
           <InputLeftElement pointerEvents='none'>
-            <TimeIcon color='blue.600' />
+            <TimeIcon color={colorMode === 'light' ? 'blue.600' : 'blue.200'} />
           </InputLeftElement>
           <TimeField input={<Input size="lg" variant="flushed" textAlign="center" onKeyDown={handleKeyDown} />} onChange={(e) => { setUserValue(e.target.value); reset() }} value={userValue} />
         </InputGroup>
@@ -89,13 +90,14 @@ const Home: NextPage = ({slug}) => {
           icon={<RepeatClockIcon />}
           onClick={reset}
         />
-        <IconButton
-          colorScheme="blue"
-          variant="ghost"
-          aria-label="Search database"
-          icon={<ViewOffIcon />}
-          onClick={hideToolbar}
-        />
+        <Menu>
+          <MenuButton as={IconButton} variant="ghost" icon={<HamburgerIcon />} colorScheme="blue" />
+          <MenuList>
+            <MenuItem onClick={toggleColorMode}>Toggle theme</MenuItem>
+            <MenuDivider />
+            <MenuItem>Donate to JacobHQ</MenuItem>
+          </MenuList>
+        </Menu>
       </ButtonGroup>
     </div>
   )
@@ -111,5 +113,5 @@ export const getServerSideProps = async (context: { query: { slug: any; }; }) =>
     slug = null;
   }
   // now we are passing the slug to the component
-  return { props: { slug:slug } };
+  return { props: { slug: slug } };
 };
