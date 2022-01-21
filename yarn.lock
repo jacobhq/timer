@@ -884,7 +884,7 @@
 
 "@next/env@12.0.8":
   version "12.0.8"
-  resolved "https://registry.npmjs.org/@next/env/-/env-12.0.8.tgz"
+  resolved "https://registry.yarnpkg.com/@next/env/-/env-12.0.8.tgz#a32ca0a97d464307f2e6ff106ce09b19aac108cf"
   integrity sha512-Wa0gOeioB9PHap9wtZDZEhgOSE3/+qE/UALWjJHuNvH4J3oE+13EjVOiEsr1JcPCXUN8ESQE+phDKlo6qJ8P9g==
 
 "@next/eslint-plugin-next@12.0.8":
@@ -896,7 +896,7 @@
 
 "@next/react-refresh-utils@12.0.8":
   version "12.0.8"
-  resolved "https://registry.npmjs.org/@next/react-refresh-utils/-/react-refresh-utils-12.0.8.tgz"
+  resolved "https://registry.yarnpkg.com/@next/react-refresh-utils/-/react-refresh-utils-12.0.8.tgz#481760a95ef442abd091663db6582d4dc1b31f06"
   integrity sha512-Bq4T/aOOFQUkCF9b8k9x+HpjOevu65ZPxsYJOpgEtBuJyvb+sZREtDDLKb/RtjUeLMrWrsGD0aLteyFFtiS8Og==
 
 "@next/swc-android-arm64@12.0.8":
@@ -931,12 +931,12 @@
 
 "@next/swc-linux-x64-gnu@12.0.8":
   version "12.0.8"
-  resolved "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-12.0.8.tgz"
+  resolved "https://registry.yarnpkg.com/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-12.0.8.tgz#029d84f856801b818e5525ab1406f2446821d48c"
   integrity sha512-rHxTGtTEDFsdT9/VjewzxE19S7W1NE+aZpm4TwbT1pSNGK9KQxQGcXjqoHMeB+VZCFknzNEoIU/vydbjZMlAuw==
 
 "@next/swc-linux-x64-musl@12.0.8":
   version "12.0.8"
-  resolved "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-12.0.8.tgz"
+  resolved "https://registry.yarnpkg.com/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-12.0.8.tgz#db572da90ab3bce0bc58595c6b8c2d32ec64a2d3"
   integrity sha512-1F4kuFRQE10GSx7LMSvRmjMXFGpxT30g8rZzq9r/p/WKdErA4WB4uxaKEX0P8AINfuN63i4luKdR+LoacgBhYw==
 
 "@next/swc-win32-arm64-msvc@12.0.8":
@@ -1175,7 +1175,7 @@ ajv@^6.10.0, ajv@^6.12.4, ajv@^6.12.5:
 
 ansi-regex@^5.0.1:
   version "5.0.1"
-  resolved "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-5.0.1.tgz#082cb2c89c9fe8659a311a53bd6a4dc5301db304"
   integrity sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==
 
 ansi-styles@^3.2.1:
@@ -1290,7 +1290,7 @@ brace-expansion@^1.1.7:
 
 braces@^3.0.1:
   version "3.0.2"
-  resolved "https://registry.npmjs.org/braces/-/braces-3.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/braces/-/braces-3.0.2.tgz#3454e1a462ee8d599e236df336cd9ea4f8afe107"
   integrity sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==
   dependencies:
     fill-range "^7.0.1"
@@ -1309,9 +1309,9 @@ callsites@^3.0.0:
   integrity sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
 
 caniuse-lite@^1.0.30001283:
-  version "1.0.30001300"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001300.tgz"
-  integrity sha512-cVjiJHWGcNlJi8TZVKNMnvMid3Z3TTdDHmLDzlOdIiZq138Exvo0G+G0wTdVYolxKb4AYwC+38pxodiInVtJSA==
+  version "1.0.30001301"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001301.tgz#ebc9086026534cab0dab99425d9c3b4425e5f450"
+  integrity sha512-csfD/GpHMqgEL3V3uIgosvh+SVIQvCh43SNu9HRbP1lnxkKm1kjDG4f32PP571JplkLjfS+mg2p1gxR7MYrrIA==
 
 chalk@^2.0.0:
   version "2.4.2"
@@ -1444,7 +1444,7 @@ debounce@^1.2.1:
 
 debug@^2.6.9:
   version "2.6.9"
-  resolved "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
   dependencies:
     ms "2.0.0"
@@ -1533,7 +1533,7 @@ error-ex@^1.3.1:
 
 es-abstract@^1.19.0, es-abstract@^1.19.1:
   version "1.19.1"
-  resolved "https://registry.npmjs.org/es-abstract/-/es-abstract-1.19.1.tgz"
+  resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.19.1.tgz#d4885796876916959de78edaa0df456627115ec3"
   integrity sha512-2vJ6tjA/UfqLm2MPs7jxVybLoB8i1t1Jd9R3kISld20sIxPcTbLuggQOUxeWeAvIUkduv/CfMjuh4WmiXr2v9w==
   dependencies:
     call-bind "^1.0.2"
@@ -1934,7 +1934,7 @@ get-symbol-description@^1.0.0:
 
 glob-parent@^5.1.2:
   version "5.1.2"
-  resolved "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz"
+  resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
   integrity sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==
   dependencies:
     is-glob "^4.0.1"
@@ -2389,7 +2389,7 @@ natural-compare@^1.4.0:
 
 next@12.0.8:
   version "12.0.8"
-  resolved "https://registry.npmjs.org/next/-/next-12.0.8.tgz"
+  resolved "https://registry.yarnpkg.com/next/-/next-12.0.8.tgz#29138f7cdd045e4bbba466af45bf430e769634b4"
   integrity sha512-g5c1Kuh1F8tSXJn2rVvzYBzqe9EXaR6+rY3/KrQ7y0D9FueRLfHI35wM0DRadDcPSc3+vncspfhYH3jnYE/KjA==
   dependencies:
     "@next/env" "12.0.8"
@@ -2563,7 +2563,7 @@ path-type@^4.0.0:
 
 picomatch@^2.2.3:
   version "2.3.1"
-  resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz"
+  resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
 popmotion@11.0.3:
@@ -2829,7 +2829,7 @@ schema-utils@^3.0.0:
 
 semver@^6.3.0:
   version "6.3.0"
-  resolved "https://registry.npmjs.org/semver/-/semver-6.3.0.tgz"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
 semver@^7.3.5:
@@ -2957,7 +2957,7 @@ style-value-types@5.0.0:
 
 styled-jsx@5.0.0-beta.6:
   version "5.0.0-beta.6"
-  resolved "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.0.0-beta.6.tgz"
+  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-5.0.0-beta.6.tgz#666552f8831a06f80c9084a47afc4b32b0c9f461"
   integrity sha512-b1cM7Xyp2r1lsNpvoZ6wmTI8qxD0557vH2feHakNU8LMkzfJDgTQMul6O7sSYY0GxQ73pKEN69hCDp71w6Q0nA==
   dependencies:
     "@babel/plugin-syntax-jsx" "7.14.5"

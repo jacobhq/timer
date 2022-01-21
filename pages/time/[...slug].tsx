@@ -1,17 +1,19 @@
 import { TimeIcon, RepeatClockIcon, ViewOffIcon, ViewIcon } from '@chakra-ui/icons'
 import { Box, Button, ButtonGroup, Heading, IconButton, Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 import type { NextPage } from 'next'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TimeField from 'react-simple-timefield';
 import React from 'react'
 import { MdPlayArrow, MdPause } from "react-icons/md";
 import { useTimer } from 'use-timer';
 import Head from 'next/head';
 import useSound from 'use-sound';
+import { useRouter } from 'next/router';
 
-const Home: NextPage = () => {
+const Home: NextPage = ({slug}) => {
   let [toolbar, setToolbar] = useState(true)
   const [play, { stop }] = useSound('/timer_end.mp3');
+  const router = useRouter()
 
   function hideToolbar() {
     setToolbar(false)
@@ -25,7 +27,7 @@ const Home: NextPage = () => {
     play()
   }
 
-  const [userValue, setUserValue] = useState('00:10')
+  const [userValue, setUserValue] = useState(slug.join(':'))
 
   function toSeconds(time: string) {
     var hms = '00:' + time
@@ -35,7 +37,7 @@ const Home: NextPage = () => {
     return seconds
   }
 
-  const { time, start, pause, reset, status } = useTimer({ initialTime: toSeconds(userValue), timerType: "DECREMENTAL", endTime: 0, onTimeOver: () => timerEnd() });
+  const { time, start, pause, reset, status } = useTimer({ initialTime: toSeconds(slug.join(':')), timerType: "DECREMENTAL", endTime: 0, onTimeOver: () => timerEnd() });
 
   return (
     <div>
@@ -89,3 +91,14 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export const getServerSideProps = async (context: { query: { slug: any; }; }) => {
+  var { slug } = context.query;
+  // If slug is "undefined", since "undefined" cannot be serialized, server will throw error
+  // But null can be serializable
+  if (!slug) {
+    slug = null;
+  }
+  // now we are passing the slug to the component
+  return { props: { slug:slug } };
+};
