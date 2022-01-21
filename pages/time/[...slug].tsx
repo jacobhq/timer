@@ -1,5 +1,5 @@
 import { TimeIcon, RepeatClockIcon, ViewOffIcon, ViewIcon, MoonIcon, SunIcon, HamburgerIcon } from '@chakra-ui/icons'
-import { Box, Button, ButtonGroup, Heading, IconButton, Input, InputGroup, InputLeftElement, Menu, MenuButton, MenuDivider, MenuItem, MenuList, useColorMode } from '@chakra-ui/react'
+import { Box, Button, ButtonGroup, Heading, IconButton, Input, InputGroup, InputLeftElement, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Tooltip, useColorMode } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 import TimeField from 'react-simple-timefield';
@@ -61,39 +61,48 @@ const Home: NextPage = ({ slug }) => {
           {new Date(time * 1000).toISOString().substr(14, 5)}
         </Heading>
       </Box>
-      <ButtonGroup p={2} borderWidth="1px" borderRadius={8} position="fixed" left={10} bottom={10} hidden={toolbar}>
-        <IconButton
-          colorScheme="blue"
-          variant="ghost"
-          aria-label="Search database"
-          icon={<ViewIcon />}
-          onClick={showToolbar}
-        />
+      <ButtonGroup p={2} borderRadius={8} position="fixed" left={10} bottom={10} hidden={toolbar}>
+        <Tooltip label="Show toolbar">
+          <IconButton
+            colorScheme="blue"
+            variant="ghost"
+            aria-label="Search database"
+            icon={<ViewIcon />}
+            onClick={showToolbar}
+          />
+        </Tooltip>
       </ButtonGroup>
-      <ButtonGroup p={2} borderWidth="1px" borderRadius={8} position="fixed" transform="translate(-50%, 0)" left="50%" bottom={10} hidden={!toolbar}>
-        <IconButton
-          colorScheme="blue"
-          aria-label="Search database"
-          icon={status === 'RUNNING' ? <MdPause /> : <MdPlayArrow />}
-          onClick={status !== 'RUNNING' ? start : pause}
-        />
-        <InputGroup>
-          <InputLeftElement pointerEvents='none'>
-            <TimeIcon color={colorMode === 'light' ? 'blue.600' : 'blue.200'} />
-          </InputLeftElement>
-          <TimeField input={<Input size="lg" variant="flushed" textAlign="center" onKeyDown={handleKeyDown} />} onChange={(e) => { setUserValue(e.target.value); reset() }} value={userValue} />
-        </InputGroup>
-        <IconButton
-          colorScheme="blue"
-          variant="ghost"
-          aria-label="Search database"
-          icon={<RepeatClockIcon />}
-          onClick={reset}
-        />
+      <ButtonGroup p={2} borderRadius={8} position="fixed" transform="translate(-50%, 0)" left="50%" bottom={10} hidden={!toolbar}>
+        <Tooltip label={status !== 'RUNNING' ? 'Start timer' : 'Pause timer'}>
+          <IconButton
+            colorScheme="blue"
+            aria-label="Search database"
+            icon={status === 'RUNNING' ? <MdPause /> : <MdPlayArrow />}
+            onClick={status !== 'RUNNING' ? start : pause}
+          />
+        </Tooltip>
+        <Tooltip label="Press enter to submit">
+          <InputGroup>
+            <InputLeftElement pointerEvents='none'>
+              <TimeIcon color={colorMode === 'light' ? 'blue.600' : 'blue.200'} />
+            </InputLeftElement>
+            <TimeField input={<Input size="lg" variant="flushed" textAlign="center" onKeyDown={handleKeyDown} />} onChange={(e) => { setUserValue(e.target.value); reset() }} value={userValue} />
+          </InputGroup>
+        </Tooltip>
+        <Tooltip label='Reset timer'>
+          <IconButton
+            colorScheme="blue"
+            variant="ghost"
+            aria-label="Search database"
+            icon={<RepeatClockIcon />}
+            onClick={reset}
+          />
+        </Tooltip>
         <Menu>
           <MenuButton as={IconButton} variant="ghost" icon={<HamburgerIcon />} colorScheme="blue" />
           <MenuList>
             <MenuItem onClick={toggleColorMode}>Toggle theme</MenuItem>
+            <MenuItem onClick={hideToolbar}>Hide toolbar</MenuItem>
             <MenuDivider />
             <MenuItem>Donate to JacobHQ</MenuItem>
           </MenuList>
