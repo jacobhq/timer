@@ -10,10 +10,12 @@ import Head from 'next/head';
 import useSound from 'use-sound';
 import { useRouter } from 'next/router';
 
+// @ts-ignore
 const Home: NextPage = ({slug}) => {
   let [toolbar, setToolbar] = useState(true)
   const [play, { stop }] = useSound('/timer_end.mp3');
   const router = useRouter()
+  const valid = /^\d{1,2}$/g
 
   function hideToolbar() {
     setToolbar(false)
