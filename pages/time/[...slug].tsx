@@ -106,6 +106,7 @@ const Home: NextPage = ({ slug }) => {
           <MenuList>
             <MenuItem onClick={toggleColorMode}>Toggle theme</MenuItem>
             <MenuItem onClick={hideToolbar}>Hide toolbar</MenuItem>
+            <MenuItem onClick={() => router.push('https://id.jacob.omg.lol')}>Manage JHQ ID</MenuItem>
             <MenuDivider />
             <MenuItem onClick={onOpen}>Donate to JacobHQ</MenuItem>
             <Modal isOpen={isOpen} onClose={onClose}>
